@@ -1,0 +1,33 @@
+article {
+  padding: 1rem;
+  background-color: #aedff2;
+}
+.product img {
+  width: 250px;
+  float: left;
+}
+
+.product {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  margin: 0.5rem 0;
+  min-width: 20rem;
+  max-width: 24rem;
+  background: #fff;
+}
+
+.product h3 {
+  font-size: 1.25rem;
+  color: #f24c27;
+}
+
+button {
+  font-size: 0.875rem;
+  padding: 0.25rem;
+  border-radius: 2px;
+  background: #f28705;
+  color: #fff;
+  margin-right: 0.25rem;
+  border-color: #f24c27;
+}

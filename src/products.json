@@ -1,40 +1,50 @@
-{
-  "products": [
-    {
-      "id": 1,
-      "name": "Kale",
-      "price": 200,
-      "image": "/assets/kale.jpg"
-    },
-    {
-      "id": 2,
-      "name": "Lettuce",
-      "price": 230,
-      "image": "/assets/lettuce.jpg"
-    },
-    {
-      "id": 3,
-      "name": "Tomatoes",
-      "price": 250,
-      "image": "/assets/tomatoes.jpg"
-    },
-    {
-      "id": 4,
-      "name": "Broccoli",
-      "price": 300,
-      "image": "/assets/broccoli.jpg"
-    },
-    {
-      "id": 5,
-      "name": "Onion",
-      "price": 300,
-      "image": "/assets/onion.jpg"
-    },
-    {
-      "id": 6,
-      "name": "Garlic",
-      "price": 300,
-      "image": "/assets/garlic.jpg"
-    }
-  ]
-}
+[
+  {
+    "id": 1,
+    "name": "Kale",
+    "price": 400,
+    "qty": 3,
+    "date": "12-28-2019",
+    "image": "/assets/kale.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Lettuce",
+    "price": 230,
+    "qty": 2,
+    "date": "01-23-2019",
+    "image": "/assets/lettuce.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Tomatoes",
+    "price": 500,
+    "qty": 1,
+    "date": "10-03-2019",
+    "image": "/assets/tomatoes.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Broccoli",
+    "price": 325,
+    "qty": 4,
+    "date": "4-18-2019",
+    "image": "/assets/broccoli.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Onion",
+    "price": 350,
+    "qty": 6,
+    "date": "9-09-2019",
+    "image": "/assets/onion.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Garlic",
+    "price": 100,
+    "qty": 5,
+    "date": "6-12-2019",
+    "image": "/assets/garlic.jpg"
+  }
+]

@@ -1,82 +1,109 @@
 import React, { Component } from 'react';
-import { Header, Product, Menu, Cart } from './components';
-import products from './products.json';
-import { ThemeProvider } from 'styled-components';
-import { theme } from './theme';
-import { GlobalStyles } from './global';
-
+import Product from './Product';
+import Header from './Header';
+import './App.css';
+import Products from './products.json';
+// https://github.com/codingforentrepreneurs/Try-Reactjs/blob/master/src/posts/PostSorting.js
 class App extends Component {
   state = {
-    products: {},
-    order: [],
-    cart: [],
-    open: false
+    groceryList: [],
+    isCheapestFirst: false,
+    order: 'Natural order',
   };
 
   componentDidMount() {
-    this.setState({ products });
+    const groceryList = Products;
+    this.setState({ isCheapestFirst: false, groceryList: groceryList });
   }
 
-  addToCart = (key, product) => {
-    const order = { ...this.state.order };
-    order[key] = order[key] + 1 || 1;
-    this.setState({ order });
-    // separate arr
-    const cart = [...this.state.cart];
-    cart.push(product.name);
-    this.setState({ cart });
+  toggleSortPrice = event => {
+    this.sortByPrice();
   };
 
-  removeFromCart = (key, product) => {
-    const order = { ...this.state.order };
-    if (order[key] > 0) {
-      order[key] = order[key] - 1 || 0;
-      this.setState({ order });
-      // separate arr
-      const cart = [...this.state.cart];
-      var index = cart.indexOf(product.name);
-      cart.splice(index, 1);
-      this.setState({ cart });
-    }
+  sortByPrice = () => {
+    const { groceryList } = this.state;
+    let newGroceryList = groceryList;
+    newGroceryList = newGroceryList.sort((a, b) =>
+      a.price > b.price ? -1 : 1,
+    );
+    this.setState({
+      groceryList: newGroceryList,
+      order: 'Ordering by price',
+    });
   };
 
-  setOpen = bool => {
-    this.setState({ open: bool });
+  toggleSortQty = () => {
+    const { groceryList } = this.state;
+    let newGroceryList = groceryList;
+    newGroceryList = newGroceryList.sort((a, b) => (a.qty > b.qty ? -1 : 1));
+    this.setState({
+      groceryList: newGroceryList,
+      order: 'Ordering by quantity',
+    });
+  };
+
+  // sortByPrice = () => {
+  //   const { groceryList } = this.state;
+  //   let newGroceryList = [...this.state.groceryList];
+  //   if (this.state.isCheapestFirst) {
+  //     console.log('cheapest first');
+  //     newGroceryList = this.state.groceryList.sort((a, b) => a.price > b.price);
+  //     console.log(newGroceryList);
+  //   } else {
+  //     console.log('not cheapest first');
+  //     newGroceryList = this.state.groceryList.sort((a, b) => a.price < b.price);
+  //   }
+
+  //   this.setState({
+  //     isCheapestFirst: !this.state.isCheapestFirst,
+  //     groceryList: newGroceryList,
+  //   });
+  // };
+
+  toggleListReverse = event => {
+    const groceryList = [...this.state.groceryList];
+    let newGroceryList = groceryList.reverse();
+    this.setState({
+      groceryList: newGroceryList,
+      order: 'Reverse natural order',
+    });
+  };
+
+  naturalOrder = () => {
+    window.location.reload(false);
+  };
+
+  toggleSortProduct = () => {
+    const groceryList = [...this.state.groceryList];
+    let newGroceryList = groceryList;
+    newGroceryList = newGroceryList.sort((a, b) => (a.name < b.name ? -1 : 1));
+    this.setState({
+      groceryList: newGroceryList,
+      order: 'Alphabetical by Product',
+    });
   };
 
   render() {
+    const { groceryList, order } = this.state;
     return (
-      <ThemeProvider theme={theme}>
-        <>
-          <GlobalStyles />
-          <div className='app'>
-            <Header />
-
-            <div className='app-main'>
-              {products.products.map(product => (
-                <Product
-                  key={product.id}
-                  index={product.id}
-                  product={product}
-                  addToCart={this.addToCart}
-                  removeFromCart={this.removeFromCart}
-                />
-              ))}
-            </div>
-            <Cart
-              open={this.state.open}
-              setOpen={this.setOpen}
-              order={this.state.order}
-            />
-            <Menu
-              open={this.state.open}
-              products={this.state.products}
-              order={this.state.order}
-              cart={this.state.cart}
-            />
+      <div className="App">
+        <Header />
+        <article>
+          <button onClick={this.naturalOrder}>Natural Order</button>
+          <button onClick={this.toggleListReverse}>Reverse Order</button>
+          <button onClick={this.toggleSortPrice}>Order by Price</button>
+          <button onClick={this.toggleSortQty}>Order by Quantity</button>
+          <button onClick={this.toggleSortProduct}>
+            Alphabetical by Product
+          </button>
+          <h4>{order}</h4>
+          <div className="App-main">
+            {groceryList.map(product => (
+              <Product key={product.id} product={product} />
+            ))}
           </div>
-        </>
-      </ThemeProvider>
+        </article>
+      </div>
     );
   }
 }

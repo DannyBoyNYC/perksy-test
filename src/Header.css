@@ -1,0 +1,12 @@
+.Header-container {
+  padding: 0.5rem;
+  display: flex;
+  background-color: #f24c27;
+  font-weight: 600;
+  align-items: center;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #fff;
+}
