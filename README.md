@@ -15,4 +15,8 @@ Yarn and run!
 * when I finished the master branch I realized it didn't have one of the requested features 
 * it was too time consuming to refactor everything in under 2 hours so so I created this
 * with a bit of additional time I can integrate it into the main branch - happy to do so if it makes a difference
+* wasn't quite certain about the instructions 'View all items sorted by type and price' so I threw in a few additional sorts
 
+Due to time constraints all the usual caveats around this not being polished apply. 
+
+Let me know what you think!
