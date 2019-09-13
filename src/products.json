@@ -1,0 +1,40 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Kale",
+      "price": 200,
+      "image": "/assets/kale.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Lettuce",
+      "price": 230,
+      "image": "/assets/lettuce.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Tomatoes",
+      "price": 250,
+      "image": "/assets/tomatoes.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Broccoli",
+      "price": 300,
+      "image": "/assets/broccoli.jpg"
+    },
+    {
+      "id": 5,
+      "name": "Onion",
+      "price": 300,
+      "image": "/assets/onion.jpg"
+    },
+    {
+      "id": 6,
+      "name": "Garlic",
+      "price": 300,
+      "image": "/assets/garlic.jpg"
+    }
+  ]
+}
